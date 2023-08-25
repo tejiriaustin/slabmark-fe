@@ -53,7 +53,7 @@ const ForgotPassword = () => {
                             size="lg"
                             colorScheme={'blue'}
                             variant={'solid'}>
-                            Login
+                            Send
                         </Button>
                     </Stack>
                 </Stack>

@@ -1,6 +1,5 @@
 import {
     Button,
-    Checkbox,
     Flex,
     Link,
     Text,
@@ -46,7 +45,7 @@ const LoginScreen = () => {
                         <Input
                             type="email"
                             placeholder={'Enter Username'}
-                            focusBorderColor='blue'
+                            focusBorderColor='blue.100'
                         />
                     </FormControl>
                     <FormControl id="password" isRequired>

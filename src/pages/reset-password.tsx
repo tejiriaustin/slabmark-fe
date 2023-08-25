@@ -65,7 +65,7 @@ const ResetPassword = () => {
                             size="lg"
                             colorScheme={'blue'}
                             variant={'solid'}>
-                            Login
+                            Reset Password
                         </Button>
                     </Stack>
                 </Stack>
