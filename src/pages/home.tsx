@@ -1,39 +1,41 @@
-import { BsBarChart } from "react-icons/bs";
-import { BiMap, BiChalkboard } from "react-icons/bi";
-import { FiSettings, FiMenu } from "react-icons/fi";
-import {IconButton} from "@chakra-ui/react";
-import  {Sidenav} from "@/src/components/sidebar/sidenav";
-import {SidenavItem} from "@/src/components/sidebar/sidenav-items/sidenav-items";
-import {SidenavProvider, useSidebar} from "@/src/components/sidebar/sidenav-context/sidenav-context";
-import SidenavContainer from "@/src/components/sidebar/sidenav-container/sidenav-container";
+import {Box, Container, Drawer, DrawerContent, Flex, useColorModeValue, useDisclosure} from "@chakra-ui/react";
+import SidenavContent from "@/components/sidenav/sidenav";
+import {Header} from "@/components/header/header";
+import React from "react";
+
+const SidebarWithHeader = () => {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
+    return (
+        <Box minH="100vh" bg={useColorModeValue('blue.50', 'blue.900')}>
+            <SidenavContent onClose={() => onClose} display={{ base: 'none', md: 'block' }} />
+            <Drawer
+                isOpen={isOpen}
+                placement="left"
+                onClose={onClose}
+                returnFocusOnClose={false}
+                onOverlayClick={onClose}
+                size="full">
+                <DrawerContent>
+                    <SidenavContent onClose={onClose} />
+                </DrawerContent>
+            </Drawer>
+            <Header onOpen={onOpen} />
+            <Box ml={{ base: 0, md: 60 }} p="4">
+                <Container>Hi there, time to start work</Container>
+            </Box>
+        </Box>
+    )
+}
+
+
 
 const Home = () => {
-    const navItems: SidenavItem[] = [
-        { icon: BsBarChart, label: "Dashboard", to: "" },
-        { icon: BiChalkboard, label: "Forecast", to: "forecast" },
-        { icon: BiMap, label: "Location", to: "location" },
-        { icon: FiSettings, label: "Settings", to: "settings" }
-    ];
-
-    const { onOpen } = useSidebar();
     return (
-        <SidenavProvider>
-            <SidenavContainer sidenav={<Sidenav navItems={navItems} />}>
-                <main>
-                    <div className="App">
-                        <h1>Hello CodeSandbox!</h1>
-                        <h2>Start editing to see some magic happen!</h2>
-                    </div>
-                </main>
-                <IconButton
-                    aria-label="menu"
-                    display={{ base: "flex", md: "none" }}
-                    onClick={onOpen}
-                    icon={<FiMenu />}
-                />
-            </ SidenavContainer>
-        </SidenavProvider>
-    );
+        <>
+            <SidebarWithHeader />
+        </>
+    )
 }
 
 export default Home;

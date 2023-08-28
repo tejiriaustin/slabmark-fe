@@ -15,7 +15,7 @@ import {
     Center,
 } from '@chakra-ui/react';
 import {useState} from "react";
-import LoginScreen from "@/src/pages/login";
+import LoginScreen from "@/pages/login";
 
 const ForgotPassword = () => {
     const [showPassword, setShowPassword] = useState(false);

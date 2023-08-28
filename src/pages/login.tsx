@@ -16,23 +16,32 @@ import {
 } from '@chakra-ui/react';
 import {ViewIcon, ViewOffIcon} from '@chakra-ui/icons';
 import {useState} from "react";
+import {useRouter} from "next/router";
+import {deleteToken} from '@/storage'
 
 const LoginScreen = () => {
+    const router = useRouter();
     const [showPassword, setShowPassword] = useState(false);
     const handleClick = () => setShowPassword(!showPassword)
 
+    const handleLogout = () => {
+        deleteToken()
+    }
+
     return (
-        <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
-            <Flex flex={1}>
+        <Flex maxH={'100vh'} overflow={'hidden'} direction={{ base: 'column', md: 'row' }}>
+            <Flex display={{base: 'none', md: 'flex'}} pos={'relative'} w={'50%'} h={'100vh'} alignItems={'center'} justifyContent={'center'} bg={'blue.500'}>
                 <Image
+                    fill
                     alt={'Login Image'}
                     objectFit={'cover'}
                     src={
-                        'img.png'
+                        'pattern-min.png'
                     }
                 />
+                <Text pos={'absolute'} fontFamily={'nunito sans'} fontSize={'40px'}  fontWeight={'700'} color={'white'}>Slabmark <br />Nig Limited</Text>
             </Flex>
-            <Flex p={8} flex={1} align={'center'} justify={'center'}>
+            <Flex p={8} w={{base: '100%', md: '50%'}} minH={'100%'} align={'center'} justify={'center'}>
                 <Stack spacing={4} w={'full'} maxW={'md'}>
                     <Center>
                         <Heading fontSize={{ base:'2xl', md: '3xl'}}>Welcome back !</Heading>
@@ -80,13 +89,15 @@ const LoginScreen = () => {
                             loadingText="Submitting"
                             size="lg"
                             colorScheme={'blue'}
-                            variant={'solid'}>
+                            variant={'solid'}
+                            onClick={()=>{router.push('/home')}}
+                        >
                             Login
                         </Button>
                     </Stack>
                 </Stack>
             </Flex>
-        </Stack>
+        </Flex>
     )
 }
 export default LoginScreen;
