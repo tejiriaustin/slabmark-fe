@@ -3,7 +3,7 @@ import SidenavContent from "@/components/sidenav/sidenav";
 import {Header} from "@/components/header/header";
 import React from "react";
 
-const SidebarWithHeader = () => {
+const SidebarWithHeader = ({children}: React.ReactNode) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (
@@ -22,7 +22,7 @@ const SidebarWithHeader = () => {
             </Drawer>
             <Header onOpen={onOpen} />
             <Box ml={{ base: 0, md: 60 }} p="4">
-                <Container>Hi there, time to start work</Container>
+                {children}
             </Box>
         </Box>
     )
@@ -30,11 +30,11 @@ const SidebarWithHeader = () => {
 
 
 
-const Home = () => {
+const Home = ({children}: React.ReactNode) => {
     return (
-        <>
-            <SidebarWithHeader />
-        </>
+        <SidebarWithHeader>
+            {children}
+        </SidebarWithHeader>
     )
 }
 

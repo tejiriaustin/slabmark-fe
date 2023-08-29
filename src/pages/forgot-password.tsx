@@ -15,21 +15,22 @@ import {
     Center,
 } from '@chakra-ui/react';
 import {useState} from "react";
-import LoginScreen from "@/pages/login";
 
 const ForgotPassword = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     return (
-        <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
-            <Flex flex={1}>
+        <Stack maxH={'100vh'} overflow={'hidden'} direction={{ base: 'column', md: 'row' }}>
+            <Flex display={{base: 'none', md: 'flex'}} pos={'relative'} w={'50%'} h={'100vh'} alignItems={'center'} justifyContent={'center'} bg={'blue.500'}>
                 <Image
+                    fill
                     alt={'Login Image'}
                     objectFit={'cover'}
                     src={
-                        'img.png'
+                        'pattern-min.png'
                     }
                 />
+                <Text pos={'absolute'} fontFamily={'nunito sans'} fontSize={'40px'}  fontWeight={'700'} color={'white'}>Slabmark <br />Nig Limited</Text>
             </Flex>
             <Flex p={8} flex={1} align={'center'} justify={'center'}>
                 <Stack spacing={4} w={'full'} maxW={'md'}>

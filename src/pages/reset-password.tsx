@@ -15,20 +15,28 @@ import {
     Center,
 } from '@chakra-ui/react';
 import {useState} from "react";
+import {ViewIcon, ViewOffIcon} from "@chakra-ui/icons";
 
 const ResetPassword = () => {
-    const [showPassword, setShowPassword] = useState(false);
+    const [showNewPassword, setShowNewPassword] = useState(false);
+    const [showConfirmPassword, setshowConfirmPassword] = useState(false);
+
+
+    const handleNewPasswordClick = () => setShowNewPassword(!showNewPassword)
+    const handleConfirmPasswordClick = () => setshowConfirmPassword(!showConfirmPassword)
 
     return (
-        <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
-            <Flex flex={1}>
+        <Stack maxH={'100vh'} overflow={'hidden'} direction={{ base: 'column', md: 'row' }}>
+            <Flex display={{base: 'none', md: 'flex'}} pos={'relative'} w={'50%'} h={'100vh'} alignItems={'center'} justifyContent={'center'} bg={'blue.500'}>
                 <Image
+                    fill
                     alt={'Login Image'}
                     objectFit={'cover'}
                     src={
-                        'img.png'
+                        'pattern-min.png'
                     }
                 />
+                <Text pos={'absolute'} fontFamily={'nunito sans'} fontSize={'40px'}  fontWeight={'700'} color={'white'}>Slabmark <br />Nig Limited</Text>
             </Flex>
             <Flex p={8} flex={1} align={'center'} justify={'center'}>
                 <Stack spacing={4} w={'full'} maxW={'md'}>
@@ -45,19 +53,39 @@ const ResetPassword = () => {
                             placeholder={'Enter email address'}
                         />
                     </FormControl>
-                    <FormControl id="New Password" isRequired>
+                    <FormControl id="password" isRequired>
                         <FormLabel>New Password</FormLabel>
-                        <Input
-                            type="password"
-                            placeholder={'Enter new password'}
-                        />
+                        <InputGroup>
+                            <Input
+                                type={showNewPassword ? 'text': 'password'}
+                                placeholder={'Enter new password'}
+                                focusBorderColor='blue.100'
+                            />
+                            <InputRightElement h={'full'}>
+                                <Button
+                                    variant={'ghost'}
+                                    onClick={handleNewPasswordClick}>
+                                    {showNewPassword ? <ViewIcon /> : <ViewOffIcon />}
+                                </Button>
+                            </InputRightElement>
+                        </InputGroup>
                     </FormControl>
                     <FormControl id="Confirm Password" isRequired>
                         <FormLabel>Confirm Password</FormLabel>
-                        <Input
-                            type="email"
-                            placeholder={'Confirm Password'}
-                        />
+                        <InputGroup>
+                            <Input
+                                type={showConfirmPassword ? 'text': 'password'}
+                                placeholder={'Confirm Password'}
+                                focusBorderColor='blue.100'
+                            />
+                            <InputRightElement h={'full'}>
+                                <Button
+                                    variant={'ghost'}
+                                    onClick={handleConfirmPasswordClick}>
+                                    {showConfirmPassword ? <ViewIcon /> : <ViewOffIcon />}
+                                </Button>
+                            </InputRightElement>
+                        </InputGroup>
                     </FormControl>
                     <Stack spacing={6}>
                         <Button

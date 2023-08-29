@@ -17,16 +17,13 @@ import {
 import {ViewIcon, ViewOffIcon} from '@chakra-ui/icons';
 import {useState} from "react";
 import {useRouter} from "next/router";
-import {deleteToken} from '@/storage'
 
 const LoginScreen = () => {
     const router = useRouter();
     const [showPassword, setShowPassword] = useState(false);
     const handleClick = () => setShowPassword(!showPassword)
 
-    const handleLogout = () => {
-        deleteToken()
-    }
+
 
     return (
         <Flex maxH={'100vh'} overflow={'hidden'} direction={{ base: 'column', md: 'row' }}>

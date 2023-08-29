@@ -17,6 +17,8 @@ import {
 } from 'react-icons/bs'
 import  {FiMenu} from "react-icons/fi";
 import Profile from '../profile/profile'
+import {deleteToken} from "@/storage";
+import {useRouter} from "next/router";
 
 interface HeaderProps extends FlexProps {
     onOpen: () => void
@@ -30,10 +32,12 @@ function getCurrentDate(separator=''){
 
 
 export function Header({ onOpen, ...rest }: HeaderProps) {
+
     return (
         <Flex
             ml={{ base: 0, md: 60 }}
-            px={4}
+            px={5}
+            py={3}
             minHeight="20"
             alignItems="center"
             flexDir={'column'}
@@ -66,7 +70,7 @@ export function Header({ onOpen, ...rest }: HeaderProps) {
                         <Input placeholder="Search" focusBorderColor='blue.100'></Input>
                     </InputGroup>
                     <Flex gap={4} alignItems={'center'}>
-                        <IconButton size="lg" variant="ghost" aria-label="open menu" icon={<BsBellFill />} />
+                        <IconButton size="lg" variant="ghost" color="gray.500" aria-label="open menu"  icon={<BsBellFill  />} />
                         <Flex alignItems={'center'}>
                             <Profile />
                         </Flex>
