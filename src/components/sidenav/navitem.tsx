@@ -1,16 +1,18 @@
 import {Box, Flex, FlexProps, Icon} from "@chakra-ui/react";
 import React from "react";
 import {IconType} from "react-icons";
+import Link from "next/link"
 
 interface NavItemProps extends FlexProps {
     icon: IconType
     children: React.ReactNode
+    url: string
 }
 
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+const NavItem = ({ icon, children, url }: NavItemProps) => {
     return (
-        <Box
-            as="a"
+        <Link  href={url}>
+            <Box
             href="#"
             color='gray.500'
             style={{ textDecoration: 'none' }}
@@ -28,7 +30,7 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
                     bg: 'blue.300',
                     color: 'gray.100',
                 }}
-                {...rest}>
+                >
                 {icon && (
                     <Icon
                         mr="4"
@@ -36,12 +38,13 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
                         _groupHover={{
                             color: 'gray.100',
                         }}
-                        as={icon}
+                        as={icon as any}
                     />
                 )}
                 {children}
             </Flex>
         </Box>
+        </Link>
     )
 }
 
