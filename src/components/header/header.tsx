@@ -60,7 +60,7 @@ export function Header({ onOpen, ...rest }: HeaderProps) {
                 />
             </Flex>
 
-            <Flex alignItems={'center'} gap={5} flexDir={{base: 'column', md: 'row'}} spacing={'6'} justifyContent={'space-between'} w={'100%'}>
+            <Flex alignItems={'center'} gap={5} flexDir={{base: 'column', md: 'row'}} justifyContent={'space-between'} w={'100%'}>
                 <Text fontSize={{ base: "14px", md: "16px", lg: "18px" }}>{getCurrentDate()}</Text>
                 <Flex gap={4} alignItems={'center'} w={{base:'full', md:'unset'}} flexDir={{base: 'column', md: 'row'}}>
                     <InputGroup  maxWidth={{base:'unset', md: '400px'}} w={'full'}>
