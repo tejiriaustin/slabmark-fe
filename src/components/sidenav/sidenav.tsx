@@ -22,7 +22,6 @@ const LinkItems: Array<LinkItemProps> = [
     {name: 'Settings', icon: FiSettings, path: '/settings'},
 ]
 
-
 const SidenavContent = ({onClose, ...rest}: SidebarProps) => {
     return (
         <Box

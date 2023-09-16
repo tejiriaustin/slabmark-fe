@@ -1,20 +1,12 @@
-import {Box, Heading,  Flex, Card, CardHeader, CardBody, CardFooter, Text} from "@chakra-ui/react";
-import useSWR from "swr";
+import {Box, Heading, Flex, Card, CardHeader, CardBody, Text} from "@chakra-ui/react";
 import {useFetcher} from "@/hooks/use-fetcher";
-import {createMutator, useMutation} from "@/hooks/use-mutation";
+import {useMutation} from "@/hooks/use-mutation";
 
 interface ReportSummaryProps  {
     summaries: Array<{
             name: string,
             details: Record<string, number | string>
         }>
-}
-
-function fetchReportSummary () {
-    const { data, error, isLoading } = useSWR()
-    return {
-
-    }
 }
 
 interface Payload {name: string, salary: string}
@@ -32,7 +24,7 @@ export default function ReportSummary ({summaries}: ReportSummaryProps) {
         url: "/users/create",
         method: "put",
         options: {
-            onSuccess(respone) {
+            onSuccess(response) {
 
             }
         }
