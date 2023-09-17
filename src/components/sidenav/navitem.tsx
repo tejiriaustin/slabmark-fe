@@ -13,7 +13,6 @@ const NavItem = ({ icon, children, url }: NavItemProps) => {
     return (
         <Link  href={url}>
             <Box
-            href="#"
             color='gray.500'
             style={{ textDecoration: 'none' }}
             _focus={{ boxShadow: 'none' }}>

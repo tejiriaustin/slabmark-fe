@@ -11,10 +11,10 @@ import {
     InputRightElement,
     useColorModeValue,
     Stack,
-    Image,
     Center,
 } from '@chakra-ui/react';
 import {useState} from "react";
+import Image from "next/image"
 
 const ForgotPassword = () => {
     const [showPassword, setShowPassword] = useState(false);

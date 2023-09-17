@@ -11,12 +11,12 @@ import {
     InputRightElement,
     useColorModeValue,
     Stack,
-    Image,
     Center,
 } from '@chakra-ui/react';
 import {ViewIcon, ViewOffIcon} from '@chakra-ui/icons';
 import {useState} from "react";
 import {useRouter} from "next/router";
+import Image from "next/image"
 
 const LoginScreen = () => {
     const router = useRouter();

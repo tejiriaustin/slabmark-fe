@@ -3,7 +3,7 @@ import useSWRMutation, { SWRMutationConfiguration} from 'swr/mutation'
 
 type MutateMethods = "put" | "post"
 
- const mutator = <T ,> (method: MutateMethods = "post") => (url: string, { arg }: { arg: T }) => {
+ const mutator = <TArgs, TResponse ,> (method: MutateMethods = "post") => (url: string, { arg }: { arg: TArgs }): Promise<TResponse> => {
     return  api[method](url, arg)
 }
 
@@ -15,5 +15,5 @@ interface UseMutationArgs <TResponse = unknown, TMutator = (url: string, arg: un
 }
 
 export const useMutation = <TResponse, TArgs ,>({url, method, options}: UseMutationArgs<TResponse>) => {
-   return useSWRMutation<TResponse, any, string, TArgs>(url, mutator(method), options)
+   return useSWRMutation<TResponse, any, string, TArgs>(url, mutator<TArgs, TResponse>(method), options)
 }

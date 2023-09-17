@@ -11,11 +11,11 @@ import {
     InputRightElement,
     useColorModeValue,
     Stack,
-    Image,
     Center,
 } from '@chakra-ui/react';
 import {useState} from "react";
 import {ViewIcon, ViewOffIcon} from "@chakra-ui/icons";
+import Image from "next/image"
 
 const ResetPassword = () => {
     const [showNewPassword, setShowNewPassword] = useState(false);

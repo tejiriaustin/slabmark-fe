@@ -3,12 +3,12 @@ import React from "react";
 import DashboardLayout from "@/components/layout/dashboard-layout";
 import ReportSummary from "@/components/report-summary";
 
-
+const summaries:  {name: string, details: Record<string, number | string>}[] = []
 
 const Report = () => {
     return (
         <DashboardLayout>
-            <ReportSummary />
+            <ReportSummary summaries={summaries} />
         </DashboardLayout>
     )
 }
