@@ -3,7 +3,7 @@ import SidenavContent from "@/components/sidenav/sidenav";
 import {Header} from "@/components/header/header";
 import React from "react";
 
-const DashboardLayout = ({children}: React.ReactNode) => {
+const DashboardLayout = ({children}: {children: React.ReactNode}) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (
