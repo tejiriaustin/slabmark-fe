@@ -29,7 +29,7 @@ const AuthProvider = ({children}: AuthProviderProps) => {
             if (!unprotectedRoutes.includes(currentPath)) {
                 // router.replace('/login')
             } else {
-
+                router.replace('/login')
             }
         }
 

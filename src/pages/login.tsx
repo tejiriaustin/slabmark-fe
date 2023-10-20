@@ -23,8 +23,6 @@ const LoginScreen = () => {
     const [showPassword, setShowPassword] = useState(false);
     const handleClick = () => setShowPassword(!showPassword)
 
-
-
     return (
         <Flex maxH={'100vh'} overflow={'hidden'} direction={{ base: 'column', md: 'row' }}>
             <Flex display={{base: 'none', md: 'flex'}} pos={'relative'} w={'50%'} h={'100vh'} alignItems={'center'} justifyContent={'center'} bg={'blue.500'}>
@@ -33,7 +31,7 @@ const LoginScreen = () => {
                     alt={'Login Image'}
                     objectFit={'cover'}
                     src={
-                        'pattern-min.png'
+                        '/pattern-min.png'
                     }
                 />
                 <Text pos={'absolute'} fontFamily={'nunito sans'} fontSize={'40px'}  fontWeight={'700'} color={'white'}>Slabmark <br />Nig Limited</Text>
@@ -87,7 +85,7 @@ const LoginScreen = () => {
                             size="lg"
                             colorScheme={'blue'}
                             variant={'solid'}
-                            onClick={()=>{router.push('/home')}}
+                            onClick={()=>{router.push('/dashboard')}}
                         >
                             Login
                         </Button>

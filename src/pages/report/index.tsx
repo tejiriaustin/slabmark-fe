@@ -1,14 +1,14 @@
-
 import React from "react";
 import DashboardLayout from "@/components/layout/dashboard-layout";
 import ReportSummary from "@/components/report-summary";
-
-const summaries:  {name: string, details: Record<string, number | string>}[] = []
+import ReportHeader from "@/components/reportheader";
+import {Text} from "@chakra-ui/react";
 
 const Report = () => {
     return (
         <DashboardLayout>
-            <ReportSummary summaries={summaries} />
+            <Text fontSize={'24px'} fontWeight={'bold'}>Report</Text>
+            <ReportHeader />
         </DashboardLayout>
     )
 }

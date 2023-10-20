@@ -1,6 +1,10 @@
 import {Box, Heading, Flex, Card, CardHeader, CardBody, Text} from "@chakra-ui/react";
 import {useFetcher} from "@/hooks/use-fetcher";
 import {useMutation} from "@/hooks/use-mutation";
+import SummaryCard from "@/components/summarycard";
+import {MdFactory} from "react-icons/md";
+import {HiFilter} from "react-icons/hi";
+import {RiStore2Fill} from "react-icons/ri";
 
 interface ReportSummaryProps  {
     summaries: Array<{
@@ -16,7 +20,6 @@ interface Response {
     data: string
 }
 
-
 export default function ReportSummary ({summaries}: ReportSummaryProps) {
     const { data, error, isLoading } = useFetcher("/users")
 
@@ -30,25 +33,22 @@ export default function ReportSummary ({summaries}: ReportSummaryProps) {
         }
     });
 
+    const cardOne = {cardName:"Refinery", icon: MdFactory,details:"vvlm"}
+    const cardTwo = {cardName:"Quality Control", icon: HiFilter, details:"vvlm"}
+    const cardThree = {cardName:"Fractionation",icon: HiFilter, details:"vvlm"}
+    const cardFour = {cardName:"Store", icon:RiStore2Fill ,details:"vvlm"}
 
-
-
-    return <Box>
-        <Heading fontSize="24px" fontWeight="700" marginBottom={4}>Latest report</Heading>
-        <Flex>
-            <Card onClick={() => trigger({
-                name: "TJ",
-                salary: "2.5k"
-            })}>
-                <CardHeader>
-                    <Heading fontSize="20px" fontWeight="600">Client Report</Heading>
-                </CardHeader>
-                <CardBody>
-                    <Text>View a summary of all your customers over the last month.</Text>
-                </CardBody>
-            </Card>
-        </Flex>
-    </Box>
+    return (
+        <Box>
+            <Heading fontSize="24px" fontWeight="700" marginBottom={4}>Latest report</Heading>
+            <Flex gap={'4'}>
+                <SummaryCard {...cardOne}/>
+                <SummaryCard {...cardTwo}/>
+                <SummaryCard {...cardThree}/>
+                <SummaryCard {...cardFour}/>
+            </Flex>
+        </Box>
+    )
 }
 
 

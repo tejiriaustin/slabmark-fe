@@ -33,7 +33,7 @@ export default function Profile() {
 
     return (
         <Menu>
-            <MenuButton p={1} transition="all 0.3s" _focus={{ boxShadow: 'none' }} bg={'gray.100'} borderRadius={100}>
+            <MenuButton p={1} transition="all 0.3s" _focus={{ boxShadow: 'none' }} bg={'gray.200'} borderRadius={'40%'}>
                 <HStack>
                     {
                         profilePicture ?
@@ -54,7 +54,7 @@ export default function Profile() {
                         ml="2"
                     >
                         <Text fontSize="sm">Justina</Text>
-                    </VStack>
+                </VStack>
                 </HStack>
             </MenuButton>
             <MenuList
@@ -62,7 +62,6 @@ export default function Profile() {
                 borderColor={useColorModeValue('gray.100', 'gray.50')}>
                 <MenuItem>Profile</MenuItem>
                 <MenuItem>Settings</MenuItem>
-                <MenuDivider />
                 <MenuItem onClick={handleLogout}>Log out</MenuItem>
             </MenuList>
         </Menu>
